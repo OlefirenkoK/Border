@@ -1,0 +1,41 @@
+{% extends 'main.html' %}
+{% load staticfiles %}
+
+{% block tt-history %}
+{% if username %}
+<table id="tt-history">
+{% for item in log %}
+    <tr>
+        <td class="user-table"> {{item.user}} </td>
+        <td class="action-table"> {{ item.action }} </td>
+        <td class="item-table"> {{ item.date }} </td>
+    </tr>
+{% endfor %}
+</table>
+<ul class="pagination">
+
+    {% if log.has_previous %}
+        <li><a href="/list/tt_info/{{ main.idTT }}/history/{{ log.previous_page_number }}/">&laquo;</a></li>
+    {% else %}
+        <li><a href="">&laquo;</a></li>
+    {% endif %}
+    {% for page in log.paginator.page_range %}
+
+        {% if page == log.number %}
+            <li class="current"><a href="/list/tt_info/{{ main.idTT }}/history/{{ page }}/">
+                {{ page }}</a></li>
+        {% else %}
+            <li><a href="/list/tt_info/{{ main.idTT }}/history/{{ page }}/">{{ page }}</a></li>
+        {% endif %}
+
+    {% endfor %}
+    {% if log.has_next %}
+        <li><a href="/list/tt_info/{{ main.idTT }}/history/{{ log.next_page_number }}/">&raquo;</a></li>
+    {% else %}
+        <li><a href="">&raquo;</a></li>
+    {% endif %}
+</ul>
+
+<script src="{% static 'js/tt-history.js'%}"></script>
+{% endif %}
+{% endblock%}

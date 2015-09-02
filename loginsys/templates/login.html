@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+
+{% block login %}
+<div id="log-fill" class="block">
+    <form action="/auth/login/" method="post">
+        {% csrf_token %}
+        <p><label for="id_username">Username</label></p>
+        <p>{{ form.username }}</p>
+        <p><label for="id_password">Password</label></p>
+        <p>{{ form.password }}</p>
+        {% if login_error %}
+            <p>{{ login_error }}</p>
+        {% else %}
+            <br/>
+        {% endif %}
+        <input class="button" type="submit" value="Login">
+    </form>
+</div>
+<script>
+    ; hideNavigatorDown() ;
+</script>
+{% endblock%}

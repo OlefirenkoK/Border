@@ -1,0 +1,75 @@
+{% extends 'main.html' %}
+{% load staticfiles %}
+
+{% block board %}
+    {% if username %}
+<div class="bord-head">
+    <ul>
+        <li><div class="bord-id-head">ID</div>
+            <div class="bord-id-filter">
+                <input type="checkbox" name="open" value="1">Open <br/>
+                <input type="checkbox" name="close" value="2">Close <br/>
+                <input type="checkbox" name="inProgress" value="3">In progress <br/>
+                <input type="checkbox" name="all" value="4" checked>All <br/>
+                <button>Submit</button> <!-- id="filter-button-id"-->
+            </div>
+        </li>
+        <li><div class="bord-city-head">Город</div>
+            <div class="bord-city-filter">
+                <input type="text" size="30px" list="data_list_city" autocomplete="off">
+                    <datalist id="data_list_city">
+
+                    </datalist>
+                <button>Submit</button>
+            </div>
+        </li>
+        <li><div class="bord-addr-head">Адрес</div></li>
+        <li><div class="bord-phone-head">Телефон</div></li>
+        <li><div class="bord-wireless-head">3G Тариф</div></li>
+        <li><div class="bord-wired-head">Провайдер</div>
+            <div class="bord-wired-filter">
+                <input type="text" size="30px" list="data_list_wired" autocomplete="off">
+                    <datalist id="data_list_wired">
+                        
+                    </datalist>
+                <button>Submit</button>
+            </div>
+        </li>
+        <li><div class="bord-contract-head">ЛС</div></li>
+        <li><div class="bord-support-head">Support</div></li>
+    </ul>
+</div>
+<div id="illusion-bord"></div>
+<div class="bord-body">
+    <ul>
+        {% for tt in TTs %}
+        <li class="bord-id-body status_{{ tt.status }} {{tt.idTT}}tt" id="{{tt.idTT}}tt">
+            <a href="/list/tt_info/{{ tt.idTT }}/" class="link-tt-id" >{{ tt.idTT }}</a></li>
+            {% if tt.status == 1 %}
+            <div class="body-tt-open status_{{ tt.status }} {{tt.idTT}}tt">
+            {% elif tt.status == 2 %}
+            <div class="body-tt-close status_{{ tt.status }} {{tt.idTT}}tt">
+            {% elif tt.status == 3 %}
+            <div class="body-tt-inProgress status_{{ tt.status }} {{tt.idTT}}tt">
+            {% else %}
+            <div>
+            {% endif %}
+                <li class="bord-city-body" id="city_body_{{tt.idTT}}"><p>{{ tt.city }}</p></li>
+                <li class="bord-addr-body" id="addr_body_{{tt.idTT}}"><p>{{ tt.address }}</p></li>
+                <li class="bord-phone-body" id="phone_body_{{tt.idTT}}"><p>{{ tt.phone }}</p></li>
+                <li class="bord-wireless-body" id="wireless_body_{{tt.idTT}}"><p>{{ tt.wireless }}</p></li>
+                <li class="bord-wired-body" id="wired_body_{{tt.idTT}}"><p>{{ tt.wiredProvider }}</p></li>
+                <li class="bord-contract-body" id="contract_body_{{tt.idTT}}"><p>{{ tt.contractId }}</p></li>
+                <li class="bord-support-body" id="support_body_{{tt.idTT}}"><p>{{ tt.supportCont1 }}</p></li>
+            </div>
+        {% endfor %}
+    </ul>
+</div>
+<p id="test-ajax"></p>
+<script src="{% static 'js/board.js'%}"></script>
+    {% else %}
+<script>
+    ; hideNavigatorDown() ;
+</script>
+    {% endif %}
+{% endblock%}

@@ -1,0 +1,103 @@
+{% extends 'main.html' %}
+{% load staticfiles %}
+
+{% block addNew %}
+{% if username %}
+<script>
+    ;var CITIES = [];
+    ;var WIREDS = [];
+</script>
+{% for element in cities %}
+<script>
+    ; CITIES.push('{{element}}');
+</script>
+{% endfor %}
+{% for element in wireds %}
+<script>
+    ; WIREDS.push('{{element}}');
+</script>
+{% endfor %}
+
+<script>
+    ;console.log(CITIES);
+    ;console.log(WIREDS);
+</script>
+<p align="center">Add New TT</p>
+<div id="form-info">
+    <div id="form-info-left">
+        <p>MAIN FORM</p>
+        <p></p>
+        <p>idTT</p>
+        <p>{{ mform.idTT }}</p>
+        <p>city</p>
+        <p>{{ mform.city }}</p>
+        <datalist id="city_list"></datalist>
+        <p>address</p>
+        <p>{{ mform.address }}</p>
+        <p>phone</p>
+        <p>{{ mform.phone }}</p>
+        <p>wireless</p>
+        <p>{{ mform.wireless }}</p>
+        <datalist id="wireless_list"></datalist>
+        <p>wiredProvider</p>
+        <p>{{ mform.wiredProvider }}</p>
+        <datalist id="wiredProvider_list"></datalist>
+        <p>contractId</p>
+        <p>{{ mform.contractId }}</p>
+        <p>supportCont1</p>
+        <p>{{ mform.supportCont1 }}</p>
+        <p>Status</p>
+        <p>{{ mform.status }}</p>
+    </div>
+    <div id="form-info-right">
+        <p>ADDITION FORM</p>
+        <p></p>
+        <p>3G Sim Number</p>
+        <p>{{ aform.wiredSimNumb }}</p>
+        <p>Addition wired provider number</p>
+        <p>{{ aform.supportCont2 }}</p>
+        <p>Region</p>
+        <p>{{ aform.region }}</p>
+        <p>Wan Network Type</p>
+        <p>{{ aform.networkType }}</p>
+        <p>OpenVPN MAC</p>
+        <p>{{ aform.ovpnMac }}</p>
+        <p>Wan Ip Address</p>
+        <p>{{ aform.wanIp }}</p>
+        <p>Addition Network Information</p>
+        <p>{{ aform.NetworkInfo }}</p>
+        <p>AP Wireless</p>
+        <p>{{ aform.WirelessType }}</p>
+    </div>
+</div>
+<ul>
+    <li class="errors-addNew">
+        <p align="center">Error!!!</p>
+        <p class="answer-addNew" align="center"></p>
+    </li>function ajaxRequest(post , )
+    <li class="success-addNew">
+        <p align="center">Success!!!</p>
+        <p class="answer-addNew" align="center"></p>
+    </li>
+    <li class="button-field-addNew">
+        <button id="submit-and-add">Submit and add</button>
+        <button id="submit">Submit</button>
+    </li>
+</ul>
+<!--
+<div id="errors-addNew">
+    <p align="center">Error!!!</p>
+</div>
+<div id="success-addNew">
+    <p align="center">Success!!!</p>
+</div>
+<div id="button-field-addNew">
+
+</div>
+-->
+{% else %}
+<p>No user</p>
+{% endif %}
+<script src="{% static 'js/addNew.js'%}"></script>
+
+{% endblock%}

@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block change_passwd %}
+{% if username %}
+<div id="log-fill" class="block">
+    <form action="/auth/change_passwd/" method="post">
+        {% csrf_token %}
+        <p><label for="id_username">Old Password</label></p>
+        <p>{{ form.old_passwd }}</p>
+        <p><label for="id_password1">New Password</label></p>
+        <p>{{ form.passwd1 }}</p>
+        <p><label for="id_password2">Confirm New Password</label></p>
+        <p>{{ form.passwd2 }}</p>
+        {% if passwd_error %}
+            <p>{{ passwd_error }}</p>
+        {% else %}
+            <br/>
+        {% endif %}
+        <input class="button" type="submit" value="Change">
+    </form>
+</div>
+{% endif %}
+<script>
+    ; hideNavigatorDown() ;
+</script>
+{% endblock%}

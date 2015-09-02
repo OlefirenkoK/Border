@@ -1,0 +1,60 @@
+{% load staticfiles %}
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Without smell</title>
+    <link rel="stylesheet" style="text/css" href="{% static 'css/boardStyle.css' %}">
+    <script src="{% static 'js/jquery-2.1.4.js'%}"></script>
+</head>
+<body>
+<div id="page">
+    <div id="navigator">
+        <div id="navigator-top">
+            <ul>
+                <li id="navigator-boarder"><a href="/list/">Boarder</a></li>
+                <li id="navigator-filter"><a href="#">Filter</a></li>
+                <li id="navigator-add-new"><a href="/list/addNew/">AddNew</a></li>
+            </ul>
+            <div id="login">
+                <ul>
+                    {% if username %}
+                        <li><a href="/auth/logout/"> LogOut ({{ username }})</a>
+                            <ul id="passwd-dropdown">
+                                <li><a href="/auth/change_passwd/" style="line-height: 25px ;">ChangePassword</a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li><a href="/auth/login/"> LogIn </a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <div id="navigator-down">
+            <ul>
+                <li><input type="text" size="60px" id="ndi-change"></li>
+                <li><button id="ndb-change">Apply</button></li>
+                <li><div class="navigator-illusion" id="ni-first"></div></li>
+                <li><input type="text" size="5px" id="ndi-goto"></li>
+                <li><button id="ndb-goto">goTo</button></li>
+                <li><div class="navigator-illusion"></div></li>
+                <li><input type="text" size="5px" id="ndi-info"></li>
+                <li><button id="ndb-info">Info</button></li>
+                <li><div class="navigator-illusion"></div></li>
+            </ul>
+        </div>
+
+    </div>
+    <script src="{% static 'js/BoardScripts.js'%}"></script>
+    <div id="illusion"></div>
+    {% block board %}{% endblock %}
+    {% block login %}{% endblock %}
+    {% block change_passwd %}{% endblock %}
+    {% block addNew %}{% endblock %}
+    {% block ttInfo %}{% endblock %}
+    {% block tt-history %}{% endblock %}
+</div>
+
+
+</body>
+</html>

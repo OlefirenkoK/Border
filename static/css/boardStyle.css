@@ -1,0 +1,892 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* styles */
+
+body {
+	background-color: #86c2c4 ;
+
+}
+
+#page {
+    width: 1280px;
+    margin: 0 auto;
+    }
+
+#illusion {
+    height: 75px;
+    width: 100%
+    }
+
+#navigator {
+    height: 75px; 
+    width: 1180px;
+    background: rgba(10, 10, 10, 0.81);
+    padding-left: 100px; 
+    position: fixed;
+	margin: 0 auto ;
+	
+    }
+
+#navigator ul li {
+	float: left ;
+	position: relative ;
+}
+
+#navigator ul li a {
+	display: block;
+    padding: 0 20px;
+    line-height: 50px;
+    text-decoration: none;
+    padding: 0 10px; 
+	color: white ; 
+}
+
+#navigator ul li a:hover {
+	background: rgb(10, 10, 10);
+	color: green ;
+}
+
+#login {
+    float: right;
+    background: rgba(10, 10, 10, 0);
+    padding: 0 0;
+	display: block ;
+	 
+    }
+
+#login ul li {
+    position: relative;
+    }
+
+#login ul li a {
+    display: block;
+    padding: 0 20px;
+    line-height: 50px;
+    text-decoration: none;
+	color: #2e2ef4 ; 
+    }
+
+#login ul li a:hover {
+	background: rgb(10, 10, 10);
+	color: green ;
+}
+
+#login ul li:hover #passwd-dropdown{
+	display: block;
+}
+
+#passwd-dropdown {
+	float: right;
+	
+	padding: 0 0;
+	display: none;
+	height: 25px ;
+}
+
+#passwd-dropdown li {
+	padding: 0 0;
+	position: relative ;
+}
+
+#passwd-dropdown a {
+	height: 25px ;
+	margin-top: 0px;
+}
+
+#navigator-top {
+	height: 50px ; 
+}
+
+#navigator-down {
+	height: 25px ;
+}
+
+#navigator-down ul li {
+	height: 25px ;
+	
+}
+
+#navigator-down ul li button {
+    line-height: 21px ;
+	border: 0px ;
+	background-color: #7c7c7c ;
+	color: black ;
+	padding: 0 10px ;
+	display: block;
+}
+
+#navigator-down ul li button:hover {
+	background: rgb(10, 10, 10);
+	color: green ;
+}
+
+.navigator-illusion {
+	display: block ; 
+	margin-left: 20px ; 
+}
+
+.block {
+    width: 400px;
+    height: 250px;
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    margin: -125px 0 0 -125px;
+	}
+
+.block input:focus {
+    border-color : red;
+    }
+
+#log-fill {
+	margin-left:  auto; 
+	font-size: 18px ; 
+	font-family: sans-serif ;
+}
+
+#log-fill input {
+	height : 30px;
+	width : 300px;
+}
+
+#log-fill .button {
+	height : 30px;
+	width : 100px;
+}
+
+
+/*board-head styles start*/
+
+#illusion-bord {
+    height: 16px ;
+    width: 100%
+    }
+
+.bord-head {
+	width: 1280px;
+	display: block ; 
+	height: auto; 
+	text-align: center ; 
+	position: fixed ; 
+}
+
+.bord-head ul li {
+	border: 1px double black ; 
+	float: left ; 
+	
+	background-color: blue ;
+	position: relative ; 
+}
+
+.bord-head ul li:hover {
+	background-color: rgb(16, 51, 51) ; 
+}
+
+.bord-id-head {
+	width: 40px ; 
+}
+
+.bord-head .bord-id-filter {
+	position: absolute;
+	line-height: 30px; 
+	display: none; 
+	border: 0px double black ;
+	width: 120px ; 
+	height: 145px ;
+	background-color: rgb(44, 40, 40) ;
+	text-align: left ;
+}
+
+.bord-head ul li:hover .bord-id-filter{
+	display: block ; 
+	position: fixed; 
+	border: 0px; 
+}
+
+.bord-head .bord-city-filter {
+	position: absolute;
+	line-height: 30px; 
+	display: none; 
+	border: 0px double black ;
+	width: 310px ; 
+	height: 150px ;
+	background-color: rgb(44, 40, 40) ;
+	text-align: left ;
+}
+
+.bord-head .bord-city-filter input {
+	margin-left: 10px ; 	
+}
+
+.bord-head .bord-city-filter button {
+	margin-left: 20px ; 
+}
+
+.bord-head ul li:hover .bord-city-filter{
+	display: block ; 
+	position: fixed; 
+	border: 0px; 
+}
+
+.bord-city-head {
+	width: 130px ; 
+}
+
+
+.bord-addr-head {
+	width: 300px ; 
+}
+
+.bord-phone-head {
+	width: 130px ;
+}
+
+.bord-wireless-head {
+	width: 120px ; 
+}
+
+.bord-wired-head {
+	width: 130px ; 
+}
+
+.bord-head .bord-wired-filter {
+	position: absolute;
+	line-height: 30px; 
+	display: none; 
+	border: 0px double black ;
+	width: 310px ; 
+	height: 150px ;
+	background-color: rgb(44, 40, 40) ;
+	text-align: left ;
+}
+
+.bord-head .bord-wired-filter input {
+	margin-left: 10px ; 	
+}
+
+.bord-head .bord-wired-filter button {
+	margin-left: 20px ; 
+}
+
+.bord-head ul li:hover .bord-wired-filter{
+	display: block ; 
+	position: fixed; 
+	border: 0px; 
+}
+
+.bord-contract-head {
+	width: 100px ; 
+}
+
+.bord-support-head {
+	width: 314px ; 
+}
+
+/*board-head styles finish*/
+
+/*board-body styles start*/
+
+.bord-body {
+	width: 1280px;
+	display: block ; 
+	height: auto; 
+	text-align: center ;
+	
+}
+
+.bord-body ul li {
+	border: 1px double black ; 
+	float: left ;  
+}
+
+.bord-body ul li a {
+	background-color: rgba(192, 192, 192, 0.8); 
+	text-decoration: none ; 
+	color: black ; 
+}
+
+.bord-body ul li a:hover {
+	background-color: rgb(232, 232, 232) ; 
+}
+
+.bord-body ul li:hover + .body-tt-close {
+	background-color: rgb(87, 86, 86) ; 
+}
+
+.bord-body ul li:hover + .body-tt-open {
+	background-color: rgb(0, 118, 0) ; 
+}
+
+.bord-body ul li:hover + .body-tt-inProgress {
+	background-color: rgb(139, 10, 10) ; 
+}
+
+.bord-id-body {
+	width: 40px ; 
+	height: 16px ; 
+}
+
+.bord-city-body {
+	width: 130px ; 
+	height: 16px ; 
+}
+
+.bord-addr-body {
+	width: 300px ; 
+	height: 16px ; 
+	overflow-x: hidden ;
+}
+
+
+.bord-phone-body {
+	width: 130px ;
+	height: 16px ; 
+}
+
+.bord-wireless-body {
+	width: 120px ; 
+	height: 16px ; 
+}
+
+.bord-wired-body {
+	width: 130px ; 
+	height: 16px ; 
+}
+
+.bord-contract-body {
+	width: 100px ; 
+	height: 16px ; 
+}
+
+.bord-support-body {
+	width: 314px ; 
+	height: 16px ; 
+}
+
+.body-tt-open {
+	background-color: rgb(1, 203, 1);
+	width: 1240px ; 
+	height: 18px ; 
+	margin-left: 40px ;
+	display: block ; 
+}
+
+.body-tt-open:hover {
+	background-color: rgb(0, 118, 0) ; 
+}
+
+.body-tt-click {
+	background-color: rgb(219, 219, 219) ; 
+}
+
+.body-tt-close  {
+	background-color: rgb(128, 128, 128);
+	width: 1240px ; 
+	height: 18px ; 
+	margin-left: 40px ;
+	display: block ; 
+	
+}
+
+.body-tt-close:hover {
+	background-color: rgb(87, 86, 86) ; 
+}
+
+.body-tt-inProgress {
+	background-color: rgb(209, 16, 16);
+	width: 1240px ; 
+	height: 18px ; 
+	margin-left: 40px ;
+	display: block ; 
+}
+
+.body-tt-inProgress:hover  {
+	background-color: rgb(139, 10, 10) ;
+}
+
+.link-tt-id {
+	display: block ; 
+}
+
+/*board-body styles finish*/
+
+/* styles addNew */
+
+#form-info {
+	background-color: black ;
+	width : 1280px ; 
+	display: block ;
+	margin-top: 20px ;
+}
+
+#form-info input {
+	height : 26px;
+	width : 300px;
+}
+
+#form-info input:focus {
+	border-color: green ;
+}
+
+#form-info textarea:focus {
+	border-color: green ;
+}
+
+#form-info p {
+	margin-left: 100px ;
+}
+
+#form-info-left {
+	margin: 20px 20px ;
+	width: 600px ; 
+	height: 420px ;
+	/*background-color: yellow;*/
+	float: left ;
+	box-shadow: 0 0 10px ;
+}
+
+#form-info-right {
+	margin: 20px 20px ;
+	width: 600px ; 
+	height: 420px ; 
+	/*background-color: red;*/
+	float: right ;
+	box-shadow: 0 0 10px ;
+}
+
+.errors-addNew {
+	color: red ; 
+	display: none;
+}
+
+.success-addNew {
+	color: green ;
+	display: none;
+}
+
+.button-field-addNew {
+	display: block; 
+	float: right;
+	margin-right: 100px;
+}
+
+.input-mac-address {
+	text-transform: uppercase ;
+}
+
+/* tt_info styels */
+
+#header-tt-info {
+	display: block ;
+	width: 1240px ; 
+	height: 40px ;
+	margin: 5px 20px;
+	background-color: rgb(33, 33, 33);
+}
+
+#header-logo {
+	width: 100px ;
+	height: 40px ; 
+	margin: 0 80px ; 
+	display: block ;
+	float: left ;
+}
+
+#header-logo a {
+	padding: 0 30px ;
+	line-height: 40px ; 
+	text-decoration: none ; 
+	font-family: Anton;
+	font-size: 24px ; 
+	display: block ;
+	color: white ;
+}
+
+#header-logo a:hover {
+	background-color: rgb(0, 0, 0);
+}
+
+#header-menu {
+	float: right ;
+	width: 980px ;
+	height: 40px ; 
+	display: block ;
+}
+
+#header-menu ul {
+	margin: 0 50px ; 
+}
+
+#header-menu ul li {
+	position: relative ;
+}
+
+#header-menu ul li{
+	padding: 0 30px ; 
+	line-height: 40px ; 
+	text-decoration: none ;
+	display: block ;
+	color: white ; 
+	float: left;
+}
+
+#header-menu ul li a {
+	text-decoration-line: none;
+	text-decoration: none ;
+	color: white ;
+}
+
+#header-menu ul li:hover {
+	background-color: rgb(0, 0, 0);
+}
+
+.dropdown {
+    position: absolute;
+    width: auto ;
+	height: auto ;
+	display: none ;
+	margin: 0 -30px ;
+}
+
+.width-150 {
+	width: 150px ; 
+}
+
+.width-170 {
+	width: 170px ;
+}
+
+.dropdown p {
+	background-color: rgb(33, 33, 33);
+	padding: 0 20px ;
+}
+
+.dropdown p:hover {
+	background-color: black;
+}
+
+#header-menu ul li:hover .dropdown {
+    display: block; 
+	
+}
+
+/*input file */
+
+.fileform {
+	background-color: rgb(33, 33, 33);
+	
+	cursor: pointer;
+	height: 40px;
+	overflow: hidden;
+	padding: 2px;
+	position: relative;
+	text-align: left;
+	vertical-align: middle;
+	width: 230px;
+}
+
+.fileform .selectbutton {
+	background-color: #a2a2a2;
+	color: black ;
+	float: right;
+	font-size: 16px;
+	height: 28px;
+	line-height: 24px;
+	overflow: hidden;
+	padding: 6px 6px;
+	text-align: center;
+	vertical-align: middle;
+	width: 50px;
+}
+
+.fileform #upload-crt, #upload-key, #upload-backup{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	-moz-opacity: 0;
+	filter: alpha(opacity=0);
+	opacity: 0;
+	font-size: 150px;
+	height: 30px;
+	z-index:20;
+}
+.fileform .fileformlabel {
+	background-color: #a2a2a2;
+	float: left;
+	height: 28px;
+	line-height: 22px;
+	overflow: hidden;
+	padding: 6px 0 ;
+	text-align: left;
+	vertical-align: middle;
+	width:160px;
+}
+
+.fileform:hover {
+	background-color: #000 ;
+}
+
+#table-info-left, #table-info-right {
+	margin: 20px 20px ;
+	display: block ;
+	width: 600px ; 
+	height: 500px ; 
+	box-shadow: 0 0 10px ;
+}
+
+.main-label-tt-info {
+	font-size: 22px ; 
+	font-family: Anton ;	
+}
+
+
+.tt-info {
+	margin: 7px 20px ;
+	vertical-align: top ;
+	display: block ;
+}
+
+.tt-info tr {
+	margin: 10px 30px ;
+	vertical-align: top;
+	padding-top: 8px ;
+	height: 35px ;
+	display: block ;
+}
+
+.tt-info tr:hover {
+	background-color: black ;
+	color: white; 
+}
+
+.tt-info tr td {
+	padding: 0 5px ;
+	vertical-align: top ;
+	word-wrap: break-word ;
+	display: block;
+}
+
+.label-tt {
+	width: 120px ;
+}
+
+.label-tt  p {
+	width: 120px ;
+}
+
+.text-tt {
+	width: 200px ;
+}
+
+.text-tt p {
+	width: 180px;
+}
+	
+.text-tt select {
+	display: none ;
+}
+
+.text-tt input {
+	float: left;
+	display: none ;
+	width: 180px ;
+}
+
+.text-tt textarea {
+	display: none ;
+}
+
+#NetworkInfo-tt {
+	height: 80px ; 
+}
+
+.button-tt {
+	width: 150px ;
+}
+
+.button-tt button {
+	float: right ; 
+	margin-left: 10px ;
+}
+
+.apply-tt-info {
+	display: none ;
+	width: 55px ;
+}
+
+#table-info-left {
+	float: left ; 
+}
+
+#table-info-right {
+	float: right;
+}
+
+#response-info-field {
+	display: none ; 
+}
+
+#button-field {
+	display: block ; 
+	float: right ;
+	margin-right: 50px ;
+	margin-top: 10px ;
+}
+
+.error-ttInfo {
+	color: red ; 
+}
+
+.success-ttInfo {
+	color: green ;
+}
+
+#request-body {
+	width: 1280px ;
+	height: 100% ;
+	display: none ;
+	background-color: rgba(56, 56, 56, 0.5) ;
+	position: absolute ;
+}
+
+#request-field {
+	position: absolute;
+	display: none ;
+	height: 200px ;
+	width: 400px ;
+	background-color: #ccb994 ;
+	margin: 100px 440px ; 
+}
+
+#migrate-title {
+	margin-top: 10px ;
+	font-size: 22px ;
+}
+
+#request-field ul li {
+	margin: 20px 20px ;
+}
+
+#request-field ul li input {
+	margin-left: 20px ;
+}
+
+#request-field ul li input:focus {
+	border: 1px solid green ;
+}
+
+#request-field p, #request-field p>button {
+	margin-left: 20px ;
+}
+
+#migrate-choose {
+	display: none ;
+}
+
+#first-apply {
+	float: right ;
+	margin-right: 30px ;
+	margin-top: 5px ;
+}
+
+/*paginator*/
+
+.pagination {
+	height: 30px ;
+	text-decoration: none; 
+	margin: 10px 50px ;
+	background-color: #414141 ;
+}
+
+.pagination li {
+	display: block ;
+	font-size: 20px ;
+}
+
+.pagination li a {
+	text-decoration: none ;
+	color: wheat;
+	display: block ;
+	float: left ;
+	padding: 5px 10px ;
+	margin-left: 10px;
+}
+
+.pagination li a:hover {
+	background-color: #221f1f ;
+}
+
+.current a{
+	color: cadetblue;
+	background-color: black ;
+}
+
+#tt-history {
+	margin: 20px 200px ;
+	box-shadow : 0 0 40px ;
+}
+
+#tt-history tr td {
+	border: 2px solid black ;
+	padding: 10px 20px ;
+}
+
+.user-table {
+	width: 150px ;
+}
+
+.action-table {
+	width: 500px ;
+}
+
+.date-table {
+	width: 250px ;
+}

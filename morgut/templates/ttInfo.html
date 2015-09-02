@@ -1,0 +1,352 @@
+{% extends 'main.html' %}
+{% load staticfiles %}
+
+{% block ttInfo %}
+
+{% if username %}
+
+<link href='http://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
+<script>
+    ; var TTID = {{ main.idTT }} ;
+</script>
+
+<div id="header-tt-info">
+    <div id="header-logo">
+        <a href="/list/tt_info/{{ main.idTT }}/">TT{{ main.idTT }}</a>
+    </div>
+    <div id="header-menu">
+        <ul>
+            <li><p>Certificate</p>
+                <div class="dropdown">
+                    <p class="download" id="crt">Download srt</p>
+                    <div id="file-form-crt" class="fileform">
+                        <p class="fileformlabel"></p>
+                        <div class="selectbutton">Crt</div>
+                        <input id="upload-crt" type="file" name="upload-crt" onchange="getName(this);">
+                    </div>
+                </div>
+            </li>
+            <li><p>Key</p>
+                <div class="dropdown">
+                    <p class="download" id="key">Download key</p>
+                    <div id="file-form-key" class="fileform">
+                        <p class="fileformlabel"></p>
+                        <div class="selectbutton">Key</div>
+                        <input id="upload-key" type="file" name="upload-key" onchange="getName(this);">
+                    </div>
+                </div>
+            </li>
+            <li><p>BackUp</p>
+                <div class="dropdown">
+                    <p class="download" id="backup">Download BackUp</p>
+                    <div id="file-form-backup" class="fileform">
+                        <p class="fileformlabel"></p>
+                        <div class="selectbutton">BackUp</div>
+                        <input id="upload-backup" type="file" name="upload-backup" onchange="getName(this);">
+                    </div>
+                </div>
+            </li>
+            <li id="info-history"><a href="/list/tt_info/{{ main.idTT }}/history/1/">History</a></li>
+            <li style="float: right ; " id="migrate"><p>Migrate</p></li>
+            <li style="float: right ; " id="verification"><p>Verification</p></li>
+        </ul>
+    </div>
+</div>
+
+<!--<h2>TT{{ main.idTT }}</h2>-->
+
+<div id="table-info-left">
+    <p class="main-label-tt-info" align="center">Main Info</p>
+    <table class="tt-info">
+        <tr id="status-tt">
+            <td class="label-tt">
+                <p>Status :</p>
+            </td>
+            <td class="text-tt">
+                {% if main.status == 1 %}
+                    <p>Open</p>
+                {% elif main.status == 2 %}
+                    <p>Close</p>
+                {% elif main.status == 3 %}
+                    <p>InProgress</p>
+                {% else %}
+                    <p>Bug , call dev!</p>
+                {% endif %}
+                <select name="status">
+                    <option value="1">Open</option>
+                    <option value="2">Close</option>
+                    <option value="3">InProgress</option>
+                </select>
+            </td>
+            <td class="button-tt">
+                <button class="change-cancel">Change</button>
+                <button class="apply-tt-info">Apply</button>
+            </td>
+        </tr>
+        <tr id="city-tt">
+            <td class="label-tt">
+                <p>City :</p>
+            </td>
+            <td class="text-tt">
+                <p>{{ main.city }}</p>
+                <input type="text" name="city" autocomplete="off" list="city_list">
+                <datalist id="city_list"></datalist>
+            </td>
+            <td class="button-tt">
+                <button class="change-cancel">Change</button>
+                <button class="apply-tt-info">Apply</button>
+            </td>
+        </tr>
+        <tr id="address-tt">
+            <td class="label-tt">
+                <p>Address :</p>
+            </td>
+            <td class="text-tt">
+                <p>{{ main.address }}</p>
+                <input type="text" name="address">
+            </td>
+            <td class="button-tt">
+                <button class="change-cancel">Change</button>
+                <button class="apply-tt-info">Apply</button>
+            </td>
+        </tr>
+        <tr id="phone-tt">
+            <td class="label-tt">
+                <p>Phone :</p>
+            </td>
+            <td class="text-tt">
+                <p>{{ main.phone }}</p>
+                <input type="text" name="phone">
+            </td>
+            <td class="button-tt">
+                <button class="change-cancel">Change</button>
+                <button class="apply-tt-info">Apply</button>
+            </td>
+        </tr>
+        <tr id="wireless-tt">
+            <td class="label-tt">
+                <p>Wireless :</p>
+            </td>
+            <td class="text-tt">
+                <p>{{ main.wireless }}</p>
+                <input type="text" name="wireless" autocomplete="off" list="wireless_list">
+                <datalist id="wireless_list"></datalist>
+            </td>
+            <td class="button-tt">
+                <button class="change-cancel">Change</button>
+                <button class="apply-tt-info">Apply</button>
+            </td>
+        </tr>
+        <tr id="wiredProvider-tt">
+            <td class="label-tt">
+                <p>Wired Provider :</p>
+            </td>
+            <td class="text-tt">
+                <p>{{ main.wiredProvider }}</p>
+                <input type="text" name="wiredProvider" autocomplete="off" list="wiredProvider_list">
+                <datalist id="wiredProvider_list"></datalist>
+            </td>
+            <td class="button-tt">
+                <button class="change-cancel">Change</button>
+                <button class="apply-tt-info">Apply</button>
+            </td>
+        </tr>
+        <tr id="contractId-tt">
+            <td class="label-tt">
+                <p>Contract :</p>
+            </td>
+            <td class="text-tt">
+                <p>{{ main.contractId }}</p>
+                <input type="text" name="contractId">
+            </td>
+            <td class="button-tt">
+                <button class="change-cancel">Change</button>
+                <button class="apply-tt-info">Apply</button>
+            </td>
+        </tr>
+        <tr id="supportCont1-tt">
+            <td class="label-tt">
+                <p>Support Phone :</p>
+            </td>
+            <td class="text-tt">
+                <p>{{ main.supportCont1 }}</p>
+                <input type="text" name="supportCont1">
+            </td>
+            <td class="button-tt">
+                <button class="change-cancel">Change</button>
+                <button class="apply-tt-info">Apply</button>
+            </td>
+        </tr>
+    </table>
+
+</div>
+<div id="table-info-right" >
+    <p class="main-label-tt-info" align="center">ADDITION INFO</p>
+    <table class="tt-info">
+        <tr id="wiredSimNumb-tt">
+            <td class="label-tt">
+                <p>3G number :</p>
+            </td>
+            <td class="text-tt">
+                <p>{{ addition.wiredSimNumb }}</p>
+                <input type="text" name="wiredSimNumb">
+            </td>
+            <td class="button-tt">
+                <button class="change-cancel">Change</button>
+                <button class="apply-tt-info">Apply</button>
+            </td>
+        </tr>
+        <tr id="supportCont2-tt">
+            <td class="label-tt">
+                <p>Support phone 2 :</p>
+            </td>
+            <td class="text-tt">
+                <p>{{ addition.supportCont2 }}</p>
+                <input type="text" name="supportCont2">
+            </td>
+            <td class="button-tt">
+                <button class="change-cancel">Change</button>
+                <button class="apply-tt-info">Apply</button>
+            </td>
+        </tr>
+        <tr id="region-tt">
+            <td class="label-tt">
+                <p>Region :</p>
+            </td>
+            <td class="text-tt">
+                <p>{{ addition.region }}</p>
+                <input type="text" name="region">
+            </td>
+            <td class="button-tt">
+                <button class="change-cancel">Change</button>
+                <button class="apply-tt-info">Apply</button>
+            </td>
+        </tr>
+        <tr id="networkType-tt">
+            <td class="label-tt">
+                <p>Network Type :</p>
+            </td>
+            <td class="text-tt">
+                {% if addition.networkType == 1 %}
+                    <p>Another</p>
+                {% elif addition.networkType == 2 %}
+                    <p>DHCP</p>
+                {% elif addition.networkType == 3 %}
+                    <p>Static</p>
+                {% elif addition.networkType == 4 %}
+                    <p>PPPoE</p>
+                {% endif %}
+                <select name="networkType">
+                    <option value="1">Another</option>
+                    <option value="2">DHCP</option>
+                    <option value="3">Static</option>
+                    <option value="4">PPPoE</option>
+                </select>
+            </td>
+            <td class="button-tt">
+                <button class="change-cancel">Change</button>
+                <button class="apply-tt-info">Apply</button>
+            </td>
+        </tr>
+        <tr id="ovpnMac-tt">
+            <td class="label-tt">
+                <p>OVPN mac :</p>
+            </td>
+            <td class="text-tt">
+                <p>{{ addition.ovpnMac }}</p>
+                <input type="text" name="ovpnMac">
+            </td>
+            <td class="button-tt">
+                <button class="change-cancel">Change</button>
+                <button class="apply-tt-info">Apply</button>
+            </td>
+        </tr>
+        <tr id="wanIp-tt">
+            <td class="label-tt">
+                <p>WAN IP :</p>
+            </td>
+            <td class="text-tt">
+                <p>{{ addition.wanIp }}</p>
+                <input type="text" name="wanIp">
+            </td>
+            <td class="button-tt">
+                <button class="change-cancel">Change</button>
+                <button class="apply-tt-info">Apply</button>
+            </td>
+        </tr>
+        <tr id="NetworkInfo-tt">
+            <td class="label-tt">
+                <p>Addition Network Information :</p>
+            </td>
+            <td class="text-tt">
+                <p>{{ addition.NetworkInfo }}</p>
+                <textarea name="NetworkInfo" cols="22" rows="4"></textarea>
+            </td>
+            <td class="button-tt">
+                <button class="change-cancel">Change</button>
+                <button class="apply-tt-info">Apply</button>
+            </td>
+        </tr>
+        <tr id="WirelessType-tt">
+            <td class="label-tt">
+                <p>AP wireless :</p>
+            </td>
+            <td class="text-tt">
+                <p>{{ addition.WirelessType }}</p>
+                <input type="text" name="WirelessType">
+            </td>
+            <td class="button-tt">
+                <button class="change-cancel">Change</button>
+                <button class="apply-tt-info">Apply</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="request-body"></div>
+<div id="request-field">
+    <p align="center" id="migrate-title">Migration</p>
+
+    {% if migrate %}
+    <form action="/list/migrate_tt/{{ main.idTT }}/" id="migrate-form" method="post">
+        {% csrf_token %}
+        <ul>
+            <li>New TT{{ migrate.new_tt }}</li>
+            <li>Migrate with mikrotik {{ migrate.mikrotik }}</li>
+        </ul>
+        <input type="submit" style="display : none ;" id="apply-form">
+    </form>
+    <p id="migrate-choose">Are you sure (Y/n)? <button id="migrate-yes">Yes</button><button id="migrate-no">No</button></p>
+    <button id="first-apply">Apply</button>
+    {% endif %}
+</div>
+
+<ul>
+    <li id="response-info-field">
+        <p id="response-header" align="center">
+            {% if error %}
+                Error!!!
+            {% endif %}
+        </p>
+        <p id="response-body" align="center">
+            {% if error %}
+                {{ error }}
+            {% endif %}
+        </p>
+    </li>
+    <li id="button-field">
+        <button id="change-and-state">Change and stay</button>
+        <button id="change">Change</button>
+    </li>
+</ul>
+{% if error %}
+<script>
+    ; var ERROR_ANSWER = true ;
+</script>
+{% endif %}
+
+
+
+<script src="{% static 'js/ttInfo.js'%}"></script>
+{% endif %}
+{% endblock %}
