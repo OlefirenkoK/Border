@@ -178,3 +178,5 @@ class LogsModel(models.Model) :
             self.action = '%s TT%s' %(self.ACTIONS[act], tt)
         else:
             raise ValueError
+
+print('TEST')
